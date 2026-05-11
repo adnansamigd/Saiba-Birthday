@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Its Sabsss Birthday </title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body{
+      background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+      font-family:sans-serif;
+      overflow-x:hidden;
+    }
+
+    .fadeIn{
+      animation:fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .bounce{
+      animation:bounce 2s infinite;
+    }
+
+    @keyframes bounce{
+      0%,100%{
+        transform:translateY(0);
+      }
+      50%{
+        transform:translateY(-10px);
+      }
+    }
+
+    .boom{
+      animation:boom 0.6s ease;
+    }
+
+    @keyframes boom{
+      0%{
+        transform:scale(1);
+      }
+      50%{
+        transform:scale(2);
+      }
+      100%{
+        transform:scale(0);
+        opacity:0;
+      }
+    }
+
+    .partyPop{
+      animation:partyPop 1s ease;
+    }
+
+    @keyframes partyPop{
+      from{
+        opacity:0;
+        transform:scale(0.7);
+      }
+      to{
+        opacity:1;
+        transform:scale(1);
+      }
+    }
+    .bigCountdown{
+  animation:bigPulse 1s infinite;
+  transform:scale(1.2);
+}
+
+@keyframes bigPulse{
+
+  0%{
+    transform:scale(1.2);
+  }
+
+  50%{
+    transform:scale(1.45);
+  }
+
+  100%{
+    transform:scale(1.2);
+  }
+}
+.fadeSwitch{
+  transition:all 0.5s ease;
+}
+  </style>
+</head>
+
+<body class="min-h-screen bg-[#ef9fa3] overflow-x-hidden overflow-y-auto">
+
+  <div class="min-h-screen w-full flex items-center justify-center px-4 relative">
+
+    <div id="page1"
+class="fadeSwitch bg-white rounded-3xl shadow-2xl p-6 sm:p-8 w-full max-w-xl text-center fadeIn">
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-pink-500 mb-5 leading-tight text-center">
+        🎂 Happy Birthday Bandhupiiii 🎂
+      </h1>
+    <p class="text-gray-700 text-base sm:text-lg leading-7 mb-6">
+      Live your life happily forever 💖
+Enjoy every moment of life no matter how hard things get.<br>  
+Always stay happy and keep smiling 😊😊😊
+    </p>
+<p id="waitingMessage"
+  class="text-pink-600 text-lg sm:text-xl font-semibold mb-5 animate-pulse">
+  🎁 A special birthday surprise is waiting...<br> Leeessssgooooooooo..........
+</p>
+
+    <div class="bg-pink-100 rounded-3xl p-4 mb-6">
+
+      <h2 class="text-2xl font-bold text-pink-500 mb-4">
+  ⏳ Countdown ⏳
+</h2>
+
+<div class="grid grid-cols-4 gap-2">
+
+  <div class="bg-white rounded-2xl p-3 shadow">
+    <p id="days" class="countNumber text-2xl font-bold text-pink-500">00</p>
+    <span class="text-sm text-gray-500">Days</span>
+  </div>
+
+  <div class="bg-white rounded-2xl p-3 shadow">
+    <p id="hours" class="countNumber text-2xl font-bold text-pink-500">00</p>
+    <span class="text-sm text-gray-500">Hours</span>
+  </div>
+
+  <div class="bg-white rounded-2xl p-3 shadow">
+    <p id="minutes" class="countNumber text-2xl font-bold text-pink-500">00</p>
+    <span class="text-sm text-gray-500">Minutes</span>
+  </div>
+
+  <div class="bg-white rounded-2xl p-3 shadow">
+    <p id="seconds" class="countNumber text-2xl font-bold text-pink-500">00</p>
+    <span class="text-sm text-gray-500">Seconds</span>
+  </div>
+
+</div>
+    </div>
+    
+
+    <div class="text-6xl mb-5 bounce">
+      🎉🎈🎁
+    </div>
+
+   <button id="surpriseBtn"
+  onclick="openSurprise()"
+  class="hidden bg-pink-500 hover:bg-pink-600 transition text-white px-6 py-4 rounded-2xl text-lg font-semibold shadow-lg w-full">
+  Click for Surprise 🎊
+</button>
+
+  </div>
+
+
+
+  <div id="page2"
+class="hidden fadeSwitch absolute inset-0 overflow-y-auto py-10 flex items-start justify-center fadeIn">
+  <div class="bg-white rounded-3xl shadow-2xl p-6 sm:p-10 w-full max-w-2xl text-center">
+
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-pink-500 mb-6">
+       Happy Birthday! Sabssss!!! 💖
+      </h1>
+
+      <div id="cakeSection">
+<div id="cakeContainer" class="relative inline-block mb-5">
+
+  <div id="smoke"
+    class="hidden absolute top-0 left-1/2 -translate-x-1/2 text-4xl transition-all duration-700">
+    💨
+  </div>
+
+  <div id="cake" class="relative">
+
+    <div id="flames"
+      class="absolute -top-5 left-1/2 -translate-x-1/2 text-3xl transition-all duration-500">
+      🔥🔥🔥
+    </div>
+
+    <div class="text-8xl sm:text-9xl bounce">
+      🎂
+    </div>
+
+  </div>
+
+</div>
+
+        <p class="text-gray-600 text-lg mb-5">
+          fuuu..... de😄
+        </p>
+
+        <button id="blowBtn"
+          onclick="blowCake()"
+          class="bg-purple-500 hover:bg-purple-600 transition text-white px-6 py-3 rounded-2xl text-lg font-semibold shadow-lg">
+          Fuuuuuuuuuu...... 💨
+        </button>
+
+      </div>
+
+
+      <div id="partyScene" class="hidden">
+
+        <div class="text-7xl sm:text-8xl mb-5 partyPop">
+          🥳🎉🎂🎈
+        </div>
+
+        <img
+          src="Saiba.jpg"
+         class="w-full h-auto rounded-3xl shadow-xl mb-8"
+        />
+
+        <p class="text-lg sm:text-2xl text-gray-700 leading-9 mb-8">
+          I didn't know that how things are getting there, 💕<br><br> How we close like we are known each other from school life, you know<br>
+you are one of the best person I have ever met in my life, you are so kind, helpful, caring and loving person. I am so lucky to have a friend like you. <br>
+sometimes I see that you push yourself so hard to overthink about things, I want to say a copy of a dialogue : "Hindi filmon ki tarah, life mein bhi, ant mein sab theek ho jata hai, Aur agar na ho, to woh ant nahi hai...picture abhi baaki hai mere dost" <br><br>
+         So don't worry about anything, just enjoy your life and be happy always. I wish you all the happiness in the world. Happy birthday again my dear friend.
+        </p>
+
+        <video
+          controls
+          class="w-full rounded-3xl shadow-2xl mb-6">
+
+          <source src="sabss.mp4" type="video/mp4">
+        </video>
+
+        <div class="text-5xl mb-4">
+          💖✨🎂🎉
+        </div>
+
+        <p class="text-pink-500 font-bold text-2xl">
+          Cake khawaaaaaaa.... 🥺❤️
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <script>
+
+   const birthday = new Date(2026,4,12,0,0,0);
+    function updateCountdown(){
+
+  const now = new Date().getTime();
+  const distance = birthday - now;
+
+  if(distance <= 0){
+
+    document.getElementById("days").innerHTML = "00";
+    document.getElementById("hours").innerHTML = "00";
+    document.getElementById("minutes").innerHTML = "00";
+    document.getElementById("seconds").innerHTML = "00";
+
+    document.getElementById("surpriseBtn")
+      .classList.remove("hidden");
+    document.getElementById("waitingMessage").innerHTML =
+"🎉 The surprise is ready! Click below 🎊";
+    confetti({
+      particleCount:250,
+      spread:150,
+      origin:{y:0.6}
+    });
+
+    clearInterval(timer);
+
+    return;
+  }
+
+  const days = Math.floor(distance / (1000*60*60*24));
+
+  const hours = Math.floor(
+    (distance % (1000*60*60*24)) /
+    (1000*60*60)
+  );
+
+  const minutes = Math.floor(
+    (distance % (1000*60*60)) /
+    (1000*60)
+  );
+
+  const seconds = Math.floor(
+    (distance % (1000*60)) / 1000
+  );
+const countNumbers = document.querySelectorAll(".countNumber");
+
+if(days === 0 && hours === 0 && minutes === 0 && seconds <= 5){
+
+  countNumbers.forEach((item)=>{
+    item.classList.add("bigCountdown");
+  });
+
+}else{
+
+  countNumbers.forEach((item)=>{
+    item.classList.remove("bigCountdown");
+  });
+}
+  document.getElementById("days").innerHTML = days;
+  document.getElementById("hours").innerHTML = hours;
+  document.getElementById("minutes").innerHTML = minutes;
+  document.getElementById("seconds").innerHTML = seconds;
+}
+
+
+   const timer = setInterval(updateCountdown,1000);
+
+    updateCountdown();
+
+
+
+    function openSurprise(){
+
+      document.getElementById("page1").classList.add("hidden");
+      document.getElementById("page2").classList.remove("hidden");
+
+      confetti({
+        particleCount:200,
+        spread:100,
+        origin:{y:0.6}
+      });
+    }
+
+
+
+    function blowCake(){
+
+  const flames =
+    document.getElementById("flames");
+
+  const smoke =
+    document.getElementById("smoke");
+
+  const cake =
+    document.getElementById("cake");
+
+  document.getElementById("blowBtn").disabled = true;
+
+
+
+  setTimeout(()=>{
+
+    smoke.classList.remove("hidden");
+
+    smoke.classList.add("animate-pulse");
+
+  },500);
+
+
+
+  setTimeout(()=>{
+
+    flames.style.opacity = "0";
+
+    flames.style.transform =
+    "translateX(-50%) translateY(-10px)";
+
+  },1200);
+
+
+
+  setTimeout(()=>{
+
+    smoke.style.opacity = "0.7";
+
+    smoke.style.transform =
+    "translateX(-50%) translateY(-15px)";
+
+  },1600);
+
+
+
+  setTimeout(()=>{
+
+    cake.innerHTML = "💥";
+
+    confetti({
+      particleCount:220,
+      spread:180
+    });
+
+  },2300);
+
+
+
+  setTimeout(()=>{
+
+    document.getElementById("cakeSection")
+      .classList.add("hidden");
+
+    document.getElementById("partyScene")
+      .classList.remove("hidden");
+
+    confetti({
+      particleCount:350,
+      spread:180,
+      origin:{y:0.5}
+    });
+
+  },3600);
+}
+
+  </script>
+
+</body>
+</html>
